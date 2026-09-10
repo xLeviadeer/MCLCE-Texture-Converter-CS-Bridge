@@ -31,6 +31,28 @@ The ⟨HintPath⟩ is where you **¡also must place the actual `.dll` file¡**. 
 
 The `builder_cmd` must be relatively accessible from your compiled final project in order to run. 
 
+## How to Use The CS-Bridge
+The CS-Bridge provides a few very small wrapper classes that can hold data about Texture Converter execution settings and create a `Process` from the data. An example ConsoleApp is provided ⌄
+```
+using MCLCE_Texture_Converter_CS_Bridge;
+
+internal class Program {
+    static void Main(string[] args) {
+        var entry = new EntryPoint {
+            InputPath = "‹absolute path to input texture pack›",
+            InputPathType = InputPathType.Folder,
+            InputGame = InputGame.Java,
+            InputVersion = new Version(1, 17),
+            OutputPath = "‹absolute output path›",
+            OutputStructure = OutputStructure.WiiuDump
+        };
+        var process = entry.ToProcess();
+        process.Start();
+        process.WaitForExit();
+    }
+}
+```
+
 ## How to Build The CS-Bridge
 ### Step 1 — Build the `.dll`
 This project was created with .NET 4.8 in VS2026. attempting to run the project should create a `.dll` in the `bin` directory. This is the `.dll` needed. 
