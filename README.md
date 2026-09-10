@@ -17,7 +17,7 @@ Add `MCLCE-Texture-Converter-CS-Bridge.dll` as a `Reference` in your project. Th
 1. Open your `.csproj` file
 2. Locate the `ItemGroup` containing `Reference`s
 3. Add the following reference ⌄
-```
+```xml
 <Reference Include="MCLCE_Texture_Converter_CS_Bridge">
     <HintPath>lib\MCLCE-Texture-Converter-CS-Bridge.dll</HintPath>
 </Reference>
@@ -33,7 +33,7 @@ The `builder_cmd` must be relatively accessible from your compiled final project
 
 ## How to Use The CS-Bridge
 The CS-Bridge provides a few very small wrapper classes that can hold data about Texture Converter execution settings and create a `Process` from the data. An example ConsoleApp is provided ⌄
-```
+```cs
 using MCLCE_Texture_Converter_CS_Bridge;
 
 internal class Program {
